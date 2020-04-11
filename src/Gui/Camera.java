@@ -63,7 +63,6 @@ public class Camera extends JFrame {
     private DaemonThread myThread = null;
     int count = 0;
     VideoCapture webSource = null;
-
     Mat frame = new Mat();
     MatOfByte mem = new MatOfByte();
 
@@ -74,6 +73,7 @@ public class Camera extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
                 webSource =new VideoCapture(0);
+                webSource.open(0);
                 myThread = new DaemonThread();
                 Thread t = new Thread(myThread);
                 t.setDaemon(true);
@@ -96,6 +96,6 @@ public class Camera extends JFrame {
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
+
     }
 }
